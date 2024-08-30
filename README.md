@@ -7,5 +7,6 @@ Datasets are taken from kaggle.
 2) https://www.kaggle.com/datasets/vyombhatia/the-three-hair-types 
 3) https://www.kaggle.com/datasets/amitvkulkarni/hair-health 
 4) https://data.mendeley.com/datasets/g46n66frrh/1
+5) https://www.kaggle.com/datasets/sundarannamalai/hair-diseases
 
 For the deployment part django would be used.
