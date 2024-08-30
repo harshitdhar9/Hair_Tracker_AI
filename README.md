@@ -9,4 +9,4 @@ Datasets are taken from kaggle.
 4) https://data.mendeley.com/datasets/g46n66frrh/1
 5) https://www.kaggle.com/datasets/sundarannamalai/hair-diseases
 
-For the deployment part django would be used.
+For the deployment part streamlit / django would be used.
