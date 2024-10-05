@@ -8,13 +8,13 @@ def run_page():
             padding: 10px;
             border-radius: 30px;
             border: 2px solid #2c3e50;
-            background-color: #b2adf7;
+            background-color: #f7bfa8;
         }
         @keyframes fadeIn {
         0% { opacity: 0; }
         100% { opacity: 1; }
         }
-        h1 {
+        h2 {
             animation: fadeIn 4s ease-in-out;
             text-align: center;
             color: #010103;
@@ -40,17 +40,17 @@ def run_page():
     """, unsafe_allow_html=True)
     
     st.markdown("""
-        <h1>
+        <h2>
         <b>
             HairFall Prediction
         </b>
-        </h1>
+        </h2>
     """, unsafe_allow_html=True)
 
-    col_x,col_y=st.columns([2,1])
+    col_x,col_y=st.columns(2)
 
     with col_x:
-        st.markdown("<h2 style='text-align: center;'>𝙷𝚊𝚒𝚛 𝙻𝚘𝚜𝚜 𝙿𝚛𝚎𝚍𝚒𝚌𝚝𝚒𝚘𝚗</h2>",unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center;'>𝙷𝚊𝚒𝚛 𝙻𝚘𝚜𝚜 𝙿𝚛𝚎𝚍𝚒𝚌𝚝𝚒𝚘𝚗</h3>",unsafe_allow_html=True)
     
         with st.form("Form 1",clear_on_submit=True):
             st.markdown('<div>', unsafe_allow_html=True)
@@ -70,10 +70,10 @@ def run_page():
                 smoking = st.text_input("𝙎𝙢𝙤𝙠𝙞𝙣𝙜 *")
                 weight_loss = st.text_input("𝙒𝙚𝙞𝙜𝙝𝙩 𝙇𝙤𝙨𝙨 *")
             
-            col3, col4, col5 = st.columns(3)
+            col3, col4, col5 = st.columns([1,2,1])
         
             with col4:
-                submit_button = st.form_submit_button("𝐒𝐮𝐛𝐦𝐢𝐭",use_container_width=True)
+                submit_button = st.form_submit_button("​⨳ 𝗦𝘂𝗯𝗺𝗶𝘁 𝘁𝗼 𝗔𝗻𝗮𝗹𝘆𝘀𝗲 ⨳",use_container_width=True)
 
                 if submit_button:
                     if not(genetics and hormonal_changes and medical_conditions and medications_treatments and nutritional_deficiencies and stress and age and poor_hair_care and environmental_factors and smoking and weight_loss):
@@ -82,3 +82,35 @@ def run_page():
                         st.success("Form submitted successfully!")
             
             st.markdown('</div>', unsafe_allow_html=True)
+    
+    col_z, col_a = st.columns([2,1])
+    with col_y:
+        st.markdown("<h3 style='text-align: center;'>𝙷𝚊𝚒𝚛 𝙵𝚊𝚕𝚕 𝙿𝚛𝚎𝚍𝚒𝚌𝚝𝚒𝚘𝚗</h3>",unsafe_allow_html=True)
+    
+        with st.form("Form 2",clear_on_submit=True):
+            st.markdown('<div>', unsafe_allow_html=True)
+            col10, col20 = st.columns(2)
+            with col10:
+                iron = st.text_input("𝙄𝙧𝙤𝙣 *")
+                vitamin = st.text_input("𝙑𝙞𝙩𝙖𝙢𝙞𝙣 *")
+                protein = st.text_input("𝙏𝙤𝙩𝙖𝙡 𝙋𝙧𝙤𝙩𝙚𝙞𝙣 *")
+                manganese = st.text_input("𝙈𝙖𝙣𝙜𝙖𝙣𝙚𝙨𝙚 *")
+        
+            with col20:
+                liver = st.text_input("𝙇𝙞𝙫𝙚𝙧 𝘿𝙖𝙩𝙖 *")
+                calcium = st.text_input("𝘾𝙖𝙡𝙘𝙞𝙪𝙢 *")
+                keratine = st.text_input("𝙏𝙤𝙩𝙖𝙡 𝙆𝙚𝙧𝙖𝙩𝙞𝙣𝙚 *")
+                 
+            col30, col40, col50 = st.columns([1,2,1])
+        
+            with col40:
+                submit_button = st.form_submit_button("⨳ 𝗦𝘂𝗯𝗺𝗶𝘁 𝘁𝗼 𝗣𝗿𝗲𝗱𝗶𝗰𝘁 ⨳",use_container_width=True)
+
+                if submit_button:
+                    if not(iron and vitamin and protein and manganese and liver and calcium and keratine):
+                        st.error("Please fill in all required fields marked with *")
+                    else:
+                        st.success("Form submitted successfully!")
+            
+            st.markdown('</div>', unsafe_allow_html=True)
+    
