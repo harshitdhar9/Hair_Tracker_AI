@@ -2,6 +2,7 @@ import streamlit as st
 
 st.set_page_config(
     page_title="Hair Tracker AI",
+    page_icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUDOdx6MBOiP_Nx6C9JxqrUqjhSOXho-JeeQ&s",
     layout="wide",
 )
 
@@ -35,6 +36,12 @@ st.markdown("""
   100% {
     transform: translateY(0);
   }
+}
+.stAppHeader.st-emotion-cache-12fmjuu.ezrtsby2 {
+  visibility: hidden;
+}
+.stAppToolbar.st-emotion-cache-15ecox0.ezrtsby0{
+    visibility: hidden;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -103,6 +110,12 @@ header = """
         height: 20px;
         width: 20px;
     }
+    .stAppHeader.st-emotion-cache-12fmjuu.ezrtsby2 {
+        visibility: hidden;
+    }
+    .stAppToolbar.st-emotion-cache-15ecox0.ezrtsby0{
+        visibility: hidden;
+    }
     </style>
 
     <div class="header">
@@ -114,6 +127,7 @@ header = """
 """
 
 st.markdown(header, unsafe_allow_html=True)
+st.markdown("---")
 
 footer = """
     <style>
@@ -127,6 +141,12 @@ footer = """
         text-align: center;
         padding: 10px;
         font-size: 14px;
+    }
+    .stAppHeader.st-emotion-cache-12fmjuu.ezrtsby2 {
+        visibility: hidden;
+    }
+    .stAppToolbar.st-emotion-cache-15ecox0.ezrtsby0{
+            visibility: hidden;
     }
     </style>
 
