@@ -2,7 +2,7 @@ streamlit-option-menu==0.3.13
 streamlit==1.39.0
 numpy==2.1.2
 pandas==2.2.3
-cv2
+opencv-python
 matplotlib
 sklearn
 skimage
