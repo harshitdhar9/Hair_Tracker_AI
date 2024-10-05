@@ -1,12 +1,12 @@
 numpy==2.1.2
 pandas==2.2.3
-seaborn==0.13.0
+seaborn
 matplotlib
 streamlit==1.39.0
 streamlit-option-menu==0.3.13
-opencv-python==4.8.0.76
+opencv-python
 scikit-learn
-tensorflow==2.14.0
+tensorflow
 keras
 xgboost
 lightgbm
