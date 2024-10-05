@@ -1,0 +1,17 @@
+streamlit-option-menu
+streamlit
+numpy
+pandas
+glob
+cv2
+matplotlib
+sklearn
+os
+skimage
+seaborn
+tensorflow
+keras
+Pillow
+xgboost
+lightgbm
+catboost
