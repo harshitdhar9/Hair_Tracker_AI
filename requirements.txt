@@ -5,7 +5,7 @@ pandas==2.2.3
 opencv-python
 matplotlib
 scikit-learn
-skimage
+scikit-image
 seaborn
 tensorflow
 keras
