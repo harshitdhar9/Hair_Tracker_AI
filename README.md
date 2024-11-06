@@ -17,7 +17,7 @@ The application is powered by four comprehensive datasets sourced from Kaggle:
 
 2)https://www.kaggle.com/datasets/lukexun/luke-hair-loss-dataset
 
-4) https://www.kaggle.com/datasets/sundarannamalai/hair-diseases
+3) https://www.kaggle.com/datasets/sundarannamalai/hair-diseases
 
 Hair Loss Dataset: Contains data on hair loss patterns and factors influencing hair loss.
 
