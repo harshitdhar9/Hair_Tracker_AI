@@ -12,9 +12,12 @@ Hair Type Classification: Identifies and classifies hair into distinct types (st
 Hair Health Monitoring: Continuously monitors hair health, detecting signs of damage, thinning, or other health issues for proactive care.
 
 The application is powered by four comprehensive datasets sourced from Kaggle:
-1) https://www.kaggle.com/datasets/vyombhatia/the-three-hair-types 
+
+1) https://www.kaggle.com/datasets/vyombhatia/the-three-hair-types
+
 2)https://www.kaggle.com/datasets/lukexun/luke-hair-loss-dataset
-3) https://www.kaggle.com/datasets/sundarannamalai/hair-diseases
+
+4) https://www.kaggle.com/datasets/sundarannamalai/hair-diseases
 
 Hair Loss Dataset: Contains data on hair loss patterns and factors influencing hair loss.
 
