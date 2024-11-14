@@ -41,7 +41,7 @@ def run_page():
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
         small_img = image.resize((300, 300))
-        st.image(small_img, caption="Uploaded Image.",width=500)
+        st.image(small_img, caption="Uploaded Image.",width=300)
         processed_image = preprocess_image(image)
         prediction = model.predict(processed_image)
         class_idx = np.argmax(prediction, axis=1)[0]
