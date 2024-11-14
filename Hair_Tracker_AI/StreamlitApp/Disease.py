@@ -57,7 +57,41 @@ def run_page():
         "Telogen Effluvium",
         "Tinea Capitis"
     ]
-        st.write(f"Prediction: {diseases[class_idx]}")
+    import time
+    disease = diseases[class_idx] 
+    
+    st.markdown(
+        f"""
+        <style>
+        .prediction-box {{
+            font-size: 24px;
+            color: #FF4500;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid #FF4500;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+        }}
+
+        @keyframes typing {{
+            from {{ width: 0; }}
+            to {{ width: 100%; }}
+        }}
+    
+        @keyframes blink-caret {{
+            from, to {{ border-color: transparent; }}
+            50% {{ border-color: orange; }}
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+    st.markdown(f'<div class="prediction-box">Prediction: {disease}</div>', unsafe_allow_html=True)
             
     st.markdown('<div class="image-uploader"><h3>Upload the image of your hair to get hair type</h3></div>', unsafe_allow_html=True)
     uploaded_file = st.file_uploader(label="Choose a jpeg, jpg file", type=('jpg', 'jpeg'), key='file-upload2', help='Upload a .jpg or .jpeg image')
