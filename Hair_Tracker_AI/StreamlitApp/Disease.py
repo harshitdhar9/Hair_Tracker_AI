@@ -1,4 +1,9 @@
 import streamlit as st
+import tensorflow as tf
+from PIL import Image
+import numpy as np
+
+model = tf.keras.models.load_model(r'AI_Models\hair_disease_cnn_model (1).h5')
 
 st.markdown("""
     <style>
@@ -24,10 +29,22 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+def preprocess_image(img):
+    img = img.resize((150, 150))  
+    img = np.array(img) / 255.0  
+    img = np.expand_dims(img, axis=0)  
+    return img
+
 def run_page():
     st.markdown('<div class="image-uploader"><h3>Upload the image of area affected by hair disease</h3></div>', unsafe_allow_html=True)
     uploaded_file = st.file_uploader(label="Choose a jpeg, jpg file", type=('jpg', 'jpeg'), key='file-upload1', help='Upload a .jpg or .jpeg image')
-        
+    if uploaded_file is not None:
+        image = Image.open(uploaded_file)
+        st.image(image, caption="Uploaded Image.", use_column_width=True)
+        processed_image = preprocess_image(image)
+        prediction = model.predict(processed_image)
+        class_idx = np.argmax(prediction, axis=1)[0]  
+        st.write(f"Prediction: {prediction}")
             
     st.markdown('<div class="image-uploader"><h3>Upload the image of your hair to get hair type</h3></div>', unsafe_allow_html=True)
     uploaded_file = st.file_uploader(label="Choose a jpeg, jpg file", type=('jpg', 'jpeg'), key='file-upload2', help='Upload a .jpg or .jpeg image')

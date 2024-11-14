@@ -83,6 +83,8 @@ if selected=="◖Home◗":
     <p>Hair Tracker AI aims to provide a comprehensive solution for improving hair care routines and proactively addressing hair-related concerns through the power of artificial intelligence.</p>
     """
     st.markdown(content, unsafe_allow_html=True)
+    post_url = 'https://twitter.com/Nightbob551/status/1842975073713750423'
+    st.markdown(f'[View Tweet]({post_url})')
 if selected=="◖HairFall Prediction◗":
     run_page1()
 if selected=="◖Disease Classification◗":
