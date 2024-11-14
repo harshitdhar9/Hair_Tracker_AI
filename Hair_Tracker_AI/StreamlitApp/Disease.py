@@ -3,7 +3,7 @@ import tensorflow as tf
 from PIL import Image
 import numpy as np
 
-model = tf.keras.models.load_model(r'StreamlitApp\hair_disease_cnn_model (1).h5')
+model = tf.keras.models.load_model(r'Hair_Tracker_AI/StreamlitApp/hair_disease_cnn_model (1).h5')
 
 st.markdown("""
     <style>
