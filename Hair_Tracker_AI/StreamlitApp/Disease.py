@@ -7,6 +7,8 @@ import joblib
 from skimage.io import imread
 from skimage.transform import resize
 from skimage.color import rgb2gray,rgba2rgb
+from skimage import io
+from io import BytesIO
 
 model = tf.keras.models.load_model(r'Hair_Tracker_AI/StreamlitApp/hair_disease_cnn_model (1).h5')
 model_path = "Hair_Tracker_AI/StreamlitApp/hairtype1_model.pkl" 
@@ -106,15 +108,15 @@ def run_page():
     uploaded_file1 = st.file_uploader(label="Choose a jpeg, jpg file", type=('jpg', 'jpeg'), key='file-upload2', help='Upload a .jpg or .jpeg image')
     if uploaded_file1:
         try:
-            img = imread(uploaded_file)
-            if len(img.shape) == 3 and img.shape[2] == 4:  
-                img = rgba2rgb(img)  
-            if len(img.shape) == 3:  
-                img = rgb2gray(img)  
-            
+            img = io.imread(BytesIO(uploaded_file1.read()))
+            if len(img.shape) == 3 and img.shape[2] == 4:
+                img = rgba2rgb(img)
+            if len(img.shape) == 3:
+                img = rgb2gray(img)
+                
             img_resized = resize(img, target_size)
-            img_flattened = img_resized.flatten().reshape(1, -1)  
-            
+            img_flattened = img_resized.flatten().reshape(1, -1)
+                
             prediction = model1.predict(img_flattened)
             predicted_category = categories[prediction[0]]
             
