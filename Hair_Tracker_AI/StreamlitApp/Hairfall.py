@@ -66,4 +66,16 @@ def run_page():
     if st.button("Predict"):
         inputs = [[pressure_level, stress_level, hair_grease, dandruff]]
         prediction = model.predict(inputs)[0]
-        st.markdown('<div class="prediction-box">The predicted hairfall level is: {}</div>'.format(prediction), unsafe_allow_html=True)
+        if prediction == 1:
+            message = "The person **might experience hairfall**."
+        else:
+            message = "The person **might not experience hairfall**."
+
+        st.markdown(
+            f"""
+            <div class="prediction-box">
+                <b>Prediction:</b> {message}
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
