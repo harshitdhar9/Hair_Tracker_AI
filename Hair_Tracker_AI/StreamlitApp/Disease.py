@@ -132,7 +132,7 @@ def run_page():
             prediction = model1.predict(img_flattened)
             predicted_category = categories[prediction[0]]
             
-            st.image(uploaded_file, caption="Uploaded Image", width=300)
+            st.image(uploaded_file1, caption="Uploaded Image", width=300)
             st.success(f"Predicted Hair Type: {predicted_category}")
         except Exception as e:
             st.error(f"Error processing the image: {e}")
