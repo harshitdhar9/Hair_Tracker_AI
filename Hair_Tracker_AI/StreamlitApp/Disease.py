@@ -5,6 +5,8 @@ import numpy as np
 import time
 import joblib
 from skimage.io import imread
+from skimage.transform import resize
+from skimage.color import rgb2gray,rgba2rgb
 
 model = tf.keras.models.load_model(r'Hair_Tracker_AI/StreamlitApp/hair_disease_cnn_model (1).h5')
 model_path = "Hair_Tracker_AI/StreamlitApp/hairtype1_model.pkl" 
