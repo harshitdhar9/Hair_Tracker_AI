@@ -13,3 +13,4 @@ lightgbm
 catboost
 Pillow
 joblib==1.4.2
+scikit-image==0.24.0
