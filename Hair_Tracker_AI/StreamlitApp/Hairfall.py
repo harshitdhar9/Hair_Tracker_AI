@@ -49,7 +49,7 @@ def run_page():
     )
     st.markdown('<div class="main-title">Hairfall Prediction App</div>', unsafe_allow_html=True)
 
-    model = joblib.load('hairfall_model.joblib')
+    model = joblib.load('Hair_Tracker_AI/StreamlitApp/XGB.joblib')
 
     st.markdown('<div class="section-header">Enter the Parameters</div>', unsafe_allow_html=True)
 
