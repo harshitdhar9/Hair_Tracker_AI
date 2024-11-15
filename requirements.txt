@@ -12,4 +12,4 @@ xgboost
 lightgbm
 catboost
 Pillow
-joblib=1.4.2
+joblib==1.4.2
