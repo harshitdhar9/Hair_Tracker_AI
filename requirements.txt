@@ -12,3 +12,4 @@ xgboost
 lightgbm
 catboost
 Pillow
+joblib
