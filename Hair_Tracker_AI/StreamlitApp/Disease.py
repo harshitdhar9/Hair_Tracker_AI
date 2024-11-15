@@ -6,7 +6,7 @@ import time
 import joblib
 
 model = tf.keras.models.load_model(r'Hair_Tracker_AI/StreamlitApp/hair_disease_cnn_model (1).h5')
-model_path = "StreamlitApp\hairtype_model.pkl" 
+model_path = "Hair_Tracker_AI/StreamlitApp/hairtype_model.pkl" 
 model1 = joblib.load(model_path)
 
 categories = ['Curly Hair', 'Straight Hair', 'Wavy Hair']
