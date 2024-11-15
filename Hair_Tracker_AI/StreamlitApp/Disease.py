@@ -9,9 +9,11 @@ from skimage.transform import resize
 from skimage.color import rgb2gray,rgba2rgb
 from skimage import io
 from io import BytesIO
+from tensorflow.keras.applications.vgg16 import preprocess_input
+from tensorflow.keras.preprocessing import image
 
 model = tf.keras.models.load_model("Hair_Tracker_AI/StreamlitApp/hair_disease_cnn_model (1).h5")
-model_path = "Hair_Tracker_AI/StreamlitApp/hairtype1_model.pkl" 
+model1=tf.keras.models.load_model("Hair_Tracker_AI/StreamlitApp/hair_type_classifier.h5")
 
 import os
 h5_model_path = 'Hair_Tracker_AI/StreamlitApp/hair_disease_cnn_model (1).h5'
@@ -19,13 +21,11 @@ if not os.path.exists(h5_model_path):
     print(f"Error: {h5_model_path} not found!")
 else:
     print(f"Found: {h5_model_path}")
-pkl_model_path = 'Hair_Tracker_AI/StreamlitApp/hairtype1_model.pkl'
+pkl_model_path = 'Hair_Tracker_AI/StreamlitApp/hair_type_classifier.h5'
 if not os.path.exists(pkl_model_path):
     print(f"Error: {pkl_model_path} not found!")
 else:
     print(f"Found: {pkl_model_path}")
-    
-model1 = joblib.load(model_path)
 
 st.markdown("""
     <style>
@@ -56,7 +56,14 @@ def preprocess_image(img):
     img = np.array(img) / 255.0  
     img = np.expand_dims(img, axis=0)  
     return img
-
+    
+def preprocess_image1(img):
+    img = img.resize((150, 150)) 
+    img_array = np.array(img) 
+    img_array = np.expand_dims(img_array, axis=0)
+    img_array = img_array / 255.0  
+    return img_array
+    
 def run_page():
     st.markdown('<div class="image-uploader"><h3>Upload the image of area affected by hair disease</h3></div>', unsafe_allow_html=True)
     uploaded_file = st.file_uploader(label="Choose a jpeg, jpg file", type=('jpg', 'jpeg'), key='file-upload1', help='Upload a .jpg or .jpeg image')
@@ -120,20 +127,14 @@ def run_page():
     target_size = (15, 15)
     if uploaded_file1:
         try:
-            img = io.imread(BytesIO(uploaded_file1.read()))
-            if len(img.shape) == 3 and img.shape[2] == 4:
-                img = rgba2rgb(img)
-            if len(img.shape) == 3:
-                img = rgb2gray(img)
-                
-            img_resized = resize(img, target_size)
-            img_flattened = img_resized.flatten().reshape(1, -1)
-                
-            prediction = model1.predict(img_flattened)
-            predicted_category = categories[prediction[0]]
-            
-            st.image(uploaded_file1, caption="Uploaded Image", width=300)
-            st.success(f"Predicted Hair Type: {predicted_category}")
+            img = Image.open(uploaded_file1)
+            st.image(img, caption='Uploaded Image',width=300)
+    
+            img_array = preprocess_image1(img)
+            prediction = model1.predict(img_array)
+            class_names = ['Curly Hair', 'Straight Hair', 'Wavy Hair'] 
+            predicted_class = class_names[np.argmax(prediction)]
+            st.write(f"Prediction: {predicted_class}")
         except Exception as e:
             st.error(f"Error processing the image: {e}")
             
