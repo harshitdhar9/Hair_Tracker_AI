@@ -10,12 +10,22 @@ from skimage.color import rgb2gray,rgba2rgb
 from skimage import io
 from io import BytesIO
 
-model = tf.keras.models.load_model(r'Hair_Tracker_AI/StreamlitApp/hair_disease_cnn_model (1).h5')
+model = tf.keras.models.load_model("Hair_Tracker_AI/StreamlitApp/hair_disease_cnn_model (1).h5")
 model_path = "Hair_Tracker_AI/StreamlitApp/hairtype1_model.pkl" 
-model1 = joblib.load(model_path)
 
-categories = ['Curly Hair', 'Straight Hair', 'Wavy Hair']
-target_size = (15, 15)
+import os
+h5_model_path = 'Hair_Tracker_AI/StreamlitApp/hair_disease_cnn_model (1).h5'
+if not os.path.exists(h5_model_path):
+    print(f"Error: {h5_model_path} not found!")
+else:
+    print(f"Found: {h5_model_path}")
+pkl_model_path = 'Hair_Tracker_AI/StreamlitApp/hairtype1_model.pkl'
+if not os.path.exists(pkl_model_path):
+    print(f"Error: {pkl_model_path} not found!")
+else:
+    print(f"Found: {pkl_model_path}")
+    
+model1 = joblib.load(model_path)
 
 st.markdown("""
     <style>
@@ -106,6 +116,8 @@ def run_page():
             
     st.markdown('<div class="image-uploader"><h3>Upload the image of your hair to get hair type</h3></div>', unsafe_allow_html=True)
     uploaded_file1 = st.file_uploader(label="Choose a jpeg, jpg file", type=('jpg', 'jpeg'), key='file-upload2', help='Upload a .jpg or .jpeg image')
+    categories = ['Curly Hair', 'Straight Hair', 'Wavy Hair']
+    target_size = (15, 15)
     if uploaded_file1:
         try:
             img = io.imread(BytesIO(uploaded_file1.read()))
