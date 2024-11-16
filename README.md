@@ -27,6 +27,7 @@ Hair Diseases Dataset: A dataset focused on various hair diseases and their symp
 
 Deployment:
 The app is built with Streamlit for a sleek and user-friendly interface. Streamlit allows for interactive usage and easy deployment, making it accessible for non-technical users.
+https://hair-tracker-ai.streamlit.app/
 
 How to Use:
 Hair Loss Prediction: Input relevant details to receive insights on the likelihood of experiencing hair loss.
