@@ -134,7 +134,10 @@ def run_page():
             prediction = model1.predict(img_array)
             class_names = ['Curly Hair', 'Straight Hair', 'Wavy Hair'] 
             predicted_class = class_names[np.argmax(prediction)]
-            st.write(f"Prediction: {predicted_class}")
+            st.markdown(
+            f'<div class="prediction-box">Hair Type Prediction: {predicted_class}</div>',
+            unsafe_allow_html=True
+            )
         except Exception as e:
             st.error(f"Error processing the image: {e}")
             
